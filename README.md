@@ -13,7 +13,6 @@ wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 chmod 755 mariadb_repo_setup
 ./mariadb_repo_setup --os-type=rhel --os-version=9 --arch=x86_64 --skip-check-installed
 yum install mariadb-server galera-4
-wget -O - https://www.crushftp.com/crush10wiki/attach/Linux%20Install/configure.sh | bash
 systemctl enable mariadb
 systemctl stop mariadb
 systemctl start mariadb
@@ -66,7 +65,7 @@ FLUSH PRIVILEGES;
 ```
 [Unit]
 Description=AutoCert
-After=network.target auditd.service named.service crushftp.service
+After=network.target auditd.service named.service
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/autocert -email useremail@example.com -pass 'DBPASS' -script /usr/local/bin/install-certs.sh example.com example.net
